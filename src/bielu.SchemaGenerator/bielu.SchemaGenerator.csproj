@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>bielu.SchemaGenerator</RootNamespace>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net6.0</TargetFrameworks>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>schemaGenerator</ToolCommandName>
+        <PackageOutputPath>./nupkg</PackageOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\bielu.SchemaGenerator.Core\bielu.SchemaGenerator.Core.csproj" />
+    </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Arkadiusz Biel",
+  "classifications": [ "Project" ],
+  "identity": "bielu.templates.CSharp",
+  "name": "Bielu Schema Generation Template",
+  "shortName": "bielu.SchemaGenerator.Project.csproj",
+  "sourceName": "bielu.SchemaGenerator.Project.csproj",
+  "sources": [
+    {
+      "source": "./bielu.SchemaGenerator.Project"
+    }
+  ]
+}

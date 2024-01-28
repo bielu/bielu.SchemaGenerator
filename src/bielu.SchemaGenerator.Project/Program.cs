@@ -9,7 +9,7 @@ namespace bielu.SchemaGenerator.Project;
 
 internal class Program
 {
-    static readonly IList<Assembly> Assemblies = new List<Assembly>()
+    static readonly IList<Assembly> _assemblies = new List<Assembly>()
     {
         typeof(Program).Assembly,
     };
@@ -33,7 +33,7 @@ internal class Program
         Task.FromResult(() =>
         {
             var schemaGenerator = new SchemaGeneratorService(new Build.Services.SchemaGenerator(), options);
-            schemaGenerator.GenerateSchema(Assemblies);
+            schemaGenerator.GenerateSchema(_assemblies);
         });
     }
 }

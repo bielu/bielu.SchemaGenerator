@@ -1,0 +1,25 @@
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <PackageId>Bielu.Schema.Generartor.Template</PackageId>
+        <Title>Schema Generation Template</Title>
+        <Authors>Arkadiusz Biel</Authors>
+        <Description></Description>
+        <PackageTags>schema,generation</PackageTags>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+    </PropertyGroup>
+    <ItemGroup>
+    <Content Include=".template.config\**\*"  PackagePath="\.template.config"/>
+    <Content Include="Template\**\*" Exclude="Template\**\bin\**;Template\**\obj\**;Template\**\node_modules\**"  PackagePath="\Template"/>
+    <Compile Remove="**\*" />
+  </ItemGroup>
+</Project>

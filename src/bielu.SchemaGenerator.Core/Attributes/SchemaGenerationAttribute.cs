@@ -6,7 +6,7 @@ namespace bielu.SchemaGenerator.Core.Attributes;
 public class SchemaGenerationAttribute : Attribute
 {
 }
-[AttributeUsage(AttributeTargets.Property)]
+[AttributeUsage(AttributeTargets.Property| AttributeTargets.Field)]
 public class SchemaPrefixAttribute : Attribute
 {
     public SchemaPrefixAttribute()

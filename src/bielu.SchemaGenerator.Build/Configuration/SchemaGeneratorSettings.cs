@@ -32,10 +32,10 @@ public class SchemaGeneratorSettings : JsonSchemaGeneratorSettings
         }
 
         /// <summary>
-        ///  we serialize everything camel case inside uSync but the settings are actually PascalCase 
-        ///  for appsettings.json, so we need to PascalCase each property. 
+        ///  we serialize everything camel case inside uSync but the settings are actually PascalCase
+        ///  for appsettings.json, so we need to PascalCase each property.
         /// </summary>
-        private string ToPascalCase(string str)
+        private static string ToPascalCase(string str)
         {
             if (!string.IsNullOrEmpty(str))
             {
@@ -50,5 +50,5 @@ public class SchemaGeneratorSettings : JsonSchemaGeneratorSettings
 
 internal class NamespacePrefixedSchemaNameGenerator : DefaultSchemaNameGenerator
 {
-    public override string Generate(Type type) => type.Namespace.Replace(".", string.Empty) + base.Generate(type);
+    public override string Generate(Type type) => type.Namespace?.Replace(".", string.Empty) + base.Generate(type);
 }

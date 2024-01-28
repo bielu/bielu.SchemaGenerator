@@ -26,27 +26,10 @@ public class SchemaGenerator : ISchemaGenerator
     {
         var prefixProperty =
             type.GetFields().FirstOrDefault(x => Attribute.IsDefined(x, typeof(SchemaPrefixAttribute)));
-
-        string schema = _schemaGenerator.Generate(type).ToJson();
-        var prefix = prefixProperty?.GetValue(null);
-        if (prefix != null)
-        {
-            foreach (var prefixValue in prefix.ToString().Split(":").Reverse())
-            {
-                schema = new JObject
-                {
-                    { "$schema", "http://json-schema.org/draft-04/schema#" },
-                    { "title", prefixValue },
-                    { "type", "object" },
-                    {
-                        "properties", new JObject
-                        {
-                            { prefixValue, JToken.Parse(schema) }
-                        }
-                    }
-                }.ToString();
-            }
-        }
+var schemaObject = _schemaGenerator.Generate(type);
+        var prefix = prefixProperty?.GetValue(null).ToString().Replace(":", "");
+        schemaObject.Title = prefix != null ? $"{prefix}" : schemaObject.Title;
+        string schema = schemaObject.ToJson();
 
         return JsonConvert.DeserializeObject<JObject>(schema);
     }

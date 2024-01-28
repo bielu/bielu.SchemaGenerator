@@ -7,5 +7,5 @@ public class Options
     [Option('o', "outputFile", Required = false,
         HelpText = "",
         Default = "..\\..\\..\\..\\assemblyName\\Schema\\appsettings-schema.className.json")]
-    public string OutputFile { get; set; }
+    public string? OutputFile { get; set; }
 }

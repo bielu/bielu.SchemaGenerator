@@ -19,13 +19,16 @@ public class SchemaGeneratorService : ISchemaGeneratorService
     {
         string targetTemplate = String.Empty;
 
-        using (Stream stream =
+        using (var stream =
                typeof(SchemaGeneratorService).Assembly.GetManifestResourceStream(
                    "bielu.SchemaGenerator.Build.Template.TargetTemplate.xml"))
-        using (StreamReader reader = new StreamReader(stream))
-        {
-            targetTemplate = reader.ReadToEnd();
-        }
+            if (stream != null)
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    targetTemplate = reader.ReadToEnd();
+                }
+            }
 
         foreach (var assembly in assemblies)
         {
@@ -56,7 +59,7 @@ public class SchemaGeneratorService : ISchemaGeneratorService
             var generatedTemplate = targetTemplate.Replace("schemaFiles",
                 string.Join("\n",
                     schemaFiles.Select(x =>
-                        $"<UmbracoJsonSchemaFiles Include=\"$(MSBuildThisFileDirectory)..\\Schema\\{x}\" Weight=\"-80\" />")));
+                        $"<UmbracoJsonSchemaFiles Include=\"$(MSBuildThisFileDirectory)..\\Schema\\{x}\"  />")));
             File.WriteAllText(targetFile, generatedTemplate);
         }
     }

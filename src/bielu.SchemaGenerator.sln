@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configurat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bielu.SchemaGenerator.Build", "bielu.SchemaGenerator.Build\bielu.SchemaGenerator.Build.csproj", "{4A14AFA3-6EC9-43EB-9A50-CFEAA25088FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bielu.SchemaGenerator.Project", "bielu.SchemaGenerator.Project\bielu.SchemaGenerator.Project.csproj", "{5258E9FF-7292-4D67-9BAC-F7618E1F046A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaGenerator", "SchemaGenerator\SchemaGenerator.csproj", "{5258E9FF-7292-4D67-9BAC-F7618E1F046A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
